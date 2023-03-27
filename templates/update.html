@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Update your Feedback</title>
+  </head>
+  <body>
+    <div class="container">
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+      <form action='/update' method="POST">
+        <div class="form-group">
+          <h3>Customer Name</h3>
+          <input
+            type="text"
+            name="customer"
+            placeholder="Name of Customer"
+          />
+        </div>
+        <div class="form-group">
+          <h3>Product</h3>
+          <select name="product">
+            <option value="">Select Product</option>
+            <option value="Television">Television</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Washing Machine">Washing Machine</option>
+            <option value="Referigator">Referigator</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Please rate your Product</h3>
+          <input type="radio" name="rating" value="1" /> 1
+          <input type="radio" name="rating" value="2" /> 2
+          <input type="radio" name="rating" value="3" /> 3
+          <input type="radio" name="rating" value="4" /> 4
+          <input type="radio" name="rating" value="5" /> 5
+          <input type="radio" name="rating" value="6" /> 6
+          <input type="radio" name="rating" value="7" /> 7
+          <input type="radio" name="rating" value="8" /> 8
+          <input type="radio" name="rating" value="9" /> 9
+          <input type="radio" name="rating" value="10" checked /> 10
+        </div>
+        <div class="form-group">
+          <h3>Comments about your experience</h3>
+          <textarea
+            name="comment"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Tell us what you liked and/or did not like"
+          ></textarea>
+        </div>
+        <input type="submit" value="Update" class="btn" />
+        <a href ="{{ url_for('submit')}}">Back</a>
+      </form>
+    </div>
+  </body>
+</html>
